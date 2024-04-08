@@ -42,7 +42,7 @@ library(knitr)      # For summary stats
 # ---------------------------------------------------------------------------- #
 
 # Import Panel
-data <- read_excel("/Users/edmundoarias/Documents/Uniandes/2024-10/HE 2/Proyecto/Exchange Rate Intervention & Effectiveness/Data/Panel.xlsx", col_types = c("date", "numeric", "text", "numeric", "numeric", "numeric"))
+data <- read_excel("/Users/edmundoarias/Documents/Uniandes/2024-10/HE 2/Exchange-Rate-Intervention/2:_ProcessedData/Panel.xlsx", col_types = c("date", "numeric", "text", "numeric", "numeric", "numeric"))
 
 # ---------------------------------------------------------------------------- #
 # Summary Statistics 
@@ -108,7 +108,7 @@ ggplot(data, aes(x = Date, y = Exchange.Rate)) +
   geom_line() +  # Creates the line plot
   labs(title = "Time Series of Exchange Rate",
        x = "Date",
-       y = "Exchange Rate") +
+       y = "Exchange Rate (COP/USD") +
   theme_minimal() +
   theme(text = element_text(family = "Times New Roman"),  # Change font to Times New Roman
         panel.grid.major = element_blank(),  # Remove major gridlines
@@ -121,7 +121,7 @@ ggplot(data, aes(x = Date, y = Exchange.Rate)) +
 # Distribution of Exchange Rate
 ggplot(data, aes(x = Exchange.Rate, fill = as.factor(Intervention))) +
   geom_density(alpha = 0.5) +
-  labs(title = "Density of Exchange Rates by Intervention Status", x = "Exchange Rate", y = "Density") +
+  labs(title = "Distribution of Exchange Rates by Intervention", x = "Exchange Rate", y = "Density") +
   scale_fill_discrete(name = "Intervention") +
   theme_minimal()
 
@@ -137,7 +137,7 @@ data <- data %>%
 ggplot(data, aes(x = Total_Int, y = exchange_change)) +
   geom_point() +
   geom_smooth(method = "lm", color = "blue") +
-  labs(title = "Relationship Between Intervention Volume and Exchange Rate Change", x = "Total Intervention (Sales + Purchases)", y = "Daily Change in Exchange Rate") +
+  labs(title = "Intervention Magnitude and Exchange Rate Change", x = "Total Intervention (Sales + Purchases)", y = "Daily Change in Exchange Rate") +
   theme_minimal()
 
 

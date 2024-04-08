@@ -6,3 +6,9 @@
 ## April 7th, 2024
 ### By: Edmundo
 ### Update: Created repository
+
+---
+
+## April 8th, 2024
+### By: Edmundo
+### Update: Added Descriptive Figures
